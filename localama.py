@@ -10,7 +10,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"]=os.getenv("OPENAI_API_KEY")
+openai_key = os.getenv("OPENAI_API_KEY")
+if openai_key:
+    os.environ["OPENAI_API_KEY"] = openai_key
 os.environ["LANGCHAIN_TRACKING_V2"]="true"
 os.environ["LANGCHAIN_API_KEY"]=os.getenv("LANGCHAIN_API_KEY")
 
@@ -36,4 +38,5 @@ chain=prompt|llm|output_parser
 
 # Handle input
 if input_text:
+
     st.write(chain.invoke({'question': input_text}))
