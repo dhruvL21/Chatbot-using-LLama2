@@ -1,6 +1,7 @@
 langchain
 langchain-openai
 langchain-core
+langchain-ollama
 langchain-community
 python-dotenv
 streamlit
